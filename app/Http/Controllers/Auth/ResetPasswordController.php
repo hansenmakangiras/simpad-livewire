@@ -32,9 +32,10 @@ class ResetPasswordController extends Controller
     public function showResetForm(Request $request, $token = null)
     {
         $pageConfigs = [
-            'bodyClass' => "bg-full-screen-image",
-            'blankPage' => true
+            'bodyClass' => 'bg-full-screen-image',
+            'blankPage' => true,
         ];
+
         return view('auth.passwords.reset')->with(
             ['token' => $token, 'email' => $request->email, 'pageConfigs' => $pageConfigs]
         );
