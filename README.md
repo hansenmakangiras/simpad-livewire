@@ -67,7 +67,7 @@
         php artisan serve
 
 ## Documentation
-For setup, usage guidance, and all other docs - please consult the [Project Wiki](https://github.com/hansenmakangiras/pajak-online/wiki).
+For setup, usage guidance, and all other docs - please consult the [Project Wiki](https://github.com/hansenmakangiras/simpad-livewire/wiki).
 
 ## License
 
