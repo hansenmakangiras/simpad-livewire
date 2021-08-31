@@ -20,7 +20,6 @@ yarn-error.log
 supervisord.log
 supervisord.pid
 # Project exclude paths
-/storage/
 /.idea/codeStyles/codeStyleConfig.xml
 /.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd
 /.idea/commandlinetools/Laravel_8_29_21__5_14_AM.xml
