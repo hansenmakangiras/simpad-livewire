@@ -65,7 +65,7 @@ return [
     |
     */
     'json' => [
-        'path'          => storage_path() . '/settings.json',
+        'path'          => storage_path().'/settings.json',
     ],
 
     /*
@@ -125,8 +125,8 @@ return [
     |   "payment.key"
     |
     */
-   'encrypted_keys' => [
+    'encrypted_keys' => [
 
-   ],
+    ],
 
 ];

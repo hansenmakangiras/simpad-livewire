@@ -42,12 +42,12 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         $pageConfigs = [
-            'bodyClass' => "bg-full-screen-image",
-            'blankPage' => true
+            'bodyClass' => 'bg-full-screen-image',
+            'blankPage' => true,
         ];
 
         return view('/auth/login', [
-            'pageConfigs' => $pageConfigs
+            'pageConfigs' => $pageConfigs,
         ]);
     }
 }

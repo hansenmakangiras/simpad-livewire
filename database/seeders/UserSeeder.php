@@ -62,7 +62,7 @@ class UserSeeder extends Seeder
                 }
 
                 // create one user for each role
-                $this->createUser($role,$faker);
+                $this->createUser($role, $faker);
             }
 
             $this->command->info('Roles '.$input_roles.' added successfully');
@@ -82,19 +82,19 @@ class UserSeeder extends Seeder
      *
      * @param $role
      */
-    private function createUser($role,Generator $faker)
+    private function createUser($role, Generator $faker)
     {
         $user = User::factory()->create();
         $user->assignRole($role->name);
 
         $dummyInfo = [
-            'nop_pbb'  => $faker->numberBetween(10000000000,100000000000),
-            'nik'    => $faker->numberBetween(1000000000000,100000000000),
-            'avatar'    => $faker->imageUrl,
-            'tahun_sppt'  => now()->year,
-            'no_telepon' => $faker->phoneNumber,
+            'nop_pbb'          => $faker->numberBetween(10000000000, 100000000000),
+            'nik'              => $faker->numberBetween(1000000000000, 100000000000),
+            'avatar'           => $faker->imageUrl,
+            'tahun_sppt'       => now()->year,
+            'no_telepon'       => $faker->phoneNumber,
             'status_hubungan'  => $faker->boolean,
-            'domisili'  => $faker->numberBetween(1,5),
+            'domisili'         => $faker->numberBetween(1, 5),
         ];
 
         $info = new UserInfo();

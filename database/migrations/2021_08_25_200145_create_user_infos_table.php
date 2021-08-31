@@ -17,9 +17,9 @@ class CreateUserInfosTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->binary('avatar');
-            $table->string('nop_pbb',30);
-            $table->string('nik',15);
-            $table->string('no_telepon',20);
+            $table->string('nop_pbb', 30);
+            $table->string('nik', 15);
+            $table->string('no_telepon', 20);
             $table->year('tahun_sppt')->default(now()->year);
             $table->integer('status_hubungan');
             $table->integer('domisili');
