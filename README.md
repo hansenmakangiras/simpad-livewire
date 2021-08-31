@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/hansenmakangiras/simpad-livewire.svg?branch=master)](https://travis-ci.com/hansenmakangiras/simpad-livewire)
-[![StyleCI](https://github.styleci.io/repos/395300090/shield?branch=main)](https://github.styleci.io/repos/395300090)
+[![StyleCI](https://github.styleci.io/repos/401698680/shield?branch=main)](https://github.styleci.io/repos/401698680)
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
