@@ -26,7 +26,7 @@ class PenggunaController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function create(): View|Factory|Application
+    public function create()
     {
       return view('account.pengguna.create');
     }
