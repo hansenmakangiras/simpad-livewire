@@ -22,7 +22,7 @@ class AppLayout extends Component
      *
      * @return View|\Closure|string
      */
-    public function render(): View|\Closure|string
+    public function render()
     {
         return view('layouts.contentLayoutMaster');
     }
