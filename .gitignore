@@ -21,3 +21,24 @@ supervisord.log
 supervisord.pid
 # Project exclude paths
 /storage/
+/.idea/codeStyles/codeStyleConfig.xml
+/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd
+/.idea/commandlinetools/Laravel_8_29_21__5_14_AM.xml
+/.idea/dictionaries/Hanzo.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/.gitignore
+/.idea/blade.xml
+/.idea/encodings.xml
+/.idea/jsLibraryMappings.xml
+/.idea/laravel-idea.xml
+/.idea/laravel-plugin.xml
+/.idea/modules.xml
+/.idea/phing.xml
+/.idea/php.xml
+/.idea/php-test-framework.xml
+/.idea/phpunit.xml
+/.idea/simpad-livewire.iml
+/.idea/symfony2.xml
+/.idea/vcs.xml
+/.idea/webResources.xml
+/.idea/yii2settings.xml
