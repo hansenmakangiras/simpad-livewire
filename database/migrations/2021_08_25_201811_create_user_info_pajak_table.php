@@ -25,7 +25,7 @@ class CreateUserInfoPajakTable extends Migration
                 ->references('id')
                 ->on('user_infos')
                 ->onDelete('cascade');
-            $table->primary(['userid','user_info_id'],'user_info_pajak_jenis_pajak_id_user_info_id_primary');
+            $table->primary(['userid', 'user_info_id'], 'user_info_pajak_jenis_pajak_id_user_info_id_primary');
         });
     }
 
