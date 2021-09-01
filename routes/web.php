@@ -27,6 +27,7 @@ Route::middleware(['auth'])->group(function () {
 //    Route::get('pengguna', \App\Http\Livewire\UserTable::class)->name('pengguna');
         Route::get('pengguna', [PenggunaController::class, 'index'])->name('pengguna');
         Route::get('pengguna/tambah', [PenggunaController::class, 'create'])->name('pengguna.create');
+        Route::get('pengguna/eksport', [PenggunaController::class, 'create'])->name('pengguna.eksport');
 //    Route::resource('pengguna', \App\Http\Controllers\Account\PenggunaController::class);
     });
     Route::get('layouts/collapsed-menu', [StaterkitController::class, 'collapsed_menu'])->name('collapsed-menu');

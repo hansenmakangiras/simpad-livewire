@@ -23,7 +23,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'gelar'             => $this->faker->title,
+            'nik'             => $this->faker->randomNumber(1000000000),
             'first_name'        => $this->faker->firstName,
             'last_name'         => $this->faker->lastName,
             'username'          => $this->faker->userName,

@@ -66,7 +66,7 @@
         </div>
         <div class="text-end">
           <div class="d-inline-flex">
-            <x-nav-link class="btn btn-danger me-50" href="{{ route('pengguna.create') }}">
+            <x-nav-link class="btn btn-danger me-50" href="#" wire:click="export">
               <i class="fas fa-file-excel"></i>
               <span class="ms-50">Eksport Excel</span>
             </x-nav-link>
@@ -169,7 +169,9 @@
     <!-- Table Start -->
       <x-table class="user-list-table table">
         <x-table.table-head>
+          <div wire:ignore>
           <th width="2%"><input type="checkbox" class="form-check" wire:model="selectAll" /></th>
+          </div>
           <th width="10%">Username</th>
           <th width="10%">Email</th>
           <th width="5%">Akses</th>
@@ -180,8 +182,7 @@
           @foreach($users as $u)
             <tr class="@if($this->isChecked($u->id)) bg-light-primary @endif">
               <th width="5%">
-                <input @if($u->id === 1) 'aria-disabled="true" disabled' @endif value="{{ $u->id }}" type="checkbox" class="form-check" wire:model="checked" wire.key="{{ $u->id
-                }}" />
+                <input value="{{ $u->id }}" type="checkbox" class="form-check" wire:model="checked" wire.key="{{ $u->id }}" />
               </th>
               <td>{{ $u->username }}</td>
               <td>{{ $u->email }}</td>
@@ -264,16 +265,9 @@
 @push('page-script')
   <!--suppress JSJQueryEfficiency -->
   <script>
-    document.addEventListener('alpine:init', () => {
-      Alpine.data('dropdown', () => ({
-        open: false,
-
-        toggle() {
-          this.open = !this.open
-        }
-      }))
-    })
-
+    if(feather){
+      feather.replace({});
+    }
     document.addEventListener('DOMContentLoaded', function () {
     @this.on('triggerDelete', (id, tipe) => {
       Swal.fire({

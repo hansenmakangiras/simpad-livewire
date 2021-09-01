@@ -7,85 +7,120 @@ use App\Models\User;
 use App\Models\UserInfo;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Livewire\Component;
-use Livewire\WithFileUploads;
 
 class Create extends Component
 {
-    use AuthorizesRequests;
-    use WithFileUploads;
+  use AuthorizesRequests;
 
-    public $roles;
-    public $roleArr;
+//  use WithFileUploads;
 
-    public $email;
-    public $username;
-    public $password;
-    public $role;
-    public $avatar;
-    public $isUploading = false;
+  public $roles;
+  public $roleArr;
 
-    public function mount(Role $role)
-    {
-        $this->roles = $role;
-        $this->roleArr = Role::pluck('name', 'id');
-    }
+  public $permissions;
+  public $selectedRoles = '';
+  public $selectedPermission = [];
+  public bool $isChecked = false;
+  // list of permission actions
+  public array $permissionCrud = [ 'read', 'write', 'create', 'delete' ];
+  public string $permissionModel = 'user';
 
-    protected function rules()
-    {
-        return [
-            'avatar'   => 'image|max:1024',
-            'username' => 'required',
-            'password' => ['required', 'min:8'],
-            'email'    => ['required', 'email', 'not_in:'.auth()->user()->email],
-            'role'     => 'required',
-        ];
-    }
+  public $email;
+  public $username;
+  public $password;
+  public $role;
+  public $avatar;
 
-    public function updatedAvatar()
-    {
-        $this->validate([
-            'avatar' => 'image|max:1024',
-        ]);
-    }
+  public $isUploading = false;
 
-    public function saveAvatar()
-    {
-        $this->avatar->store('avatar');
-    }
+  public function mount()
+  {
+    $this->roles = Role::where('name', '!=', 'superadmin')->get();
+    $this->roleArr = Role::pluck('name', 'id');
+//    $this->permissions = Permission::with('roles')->get();
+  }
 
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
-    }
+  protected function rules()
+  {
+    return [
+//      'avatar' => 'image|max:1024',
+      'username' => 'required',
+      'password' => [ 'required', 'min:8' ],
+      'email' => [ 'required', 'email', 'not_in:' . auth()->user()->email ],
+      'role' => 'required',
+      'permissions' => 'required',
+    ];
+  }
 
-    public function storeUserGeneral()
-    {
-        $validatedData = $this->validate();
-        User::create($validatedData);
-    }
+//  public function updatedAvatar()
+//  {
+//    $this->validate([
+//                      'avatar' => 'image|max:1024',
+//                    ]);
+//  }
 
-    public function updatingSearch()
-    {
-        $this->resetPage();
-    }
+//  public function updatePermission()
+//  {
+//
+//  }
 
-    public function storeUserInfo()
-    {
-        $validatedData = $this->validate(
-            ['email' => 'required|email'],
-            [
-                'email.required' => 'The :attribute cannot be empty.',
-                'email.email'    => 'The :attribute format is not valid.',
-            ],
-            ['email' => 'Email Address']
-        );
+//  public function saveAvatar()
+//  {
+//    $this->avatar->store('avatar');
+//  }
 
-        UserInfo::create($validatedData);
-    }
+  public function updated($propertyName)
+  {
+    $this->validateOnly($propertyName);
+  }
 
-    public function render()
-    {
-//      $roles = Role::pluck('name','id');
-        return view('livewire.pengguna.create');
-    }
+  public function submit()
+  {
+    $this->validate();
+
+    $user = User::create([
+                           'username' => $this->username,
+                           'password' => \Hash::make($this->password),
+                           'email' => $this->email,
+                           'nik' => '343534534534534',
+                           'is_admin' => false,
+                           'status' => true
+                         ]);
+    $user->role($this->selectedRoles)->syncPermissions($this->selectedPermission);
+
+    return $user;
+  }
+
+//  public function storeUserGeneral()
+//  {
+//    $validatedData = $this->validate();
+//    dd($validatedData);
+//    $user = User::create($validatedData);
+//    $role = Role::where('name',$user->role);
+//    $user->role->syncPermissions($this->selectedPermission);
+//  }
+
+  public function updatingSearch()
+  {
+    $this->resetPage();
+  }
+
+  public function storeUserInfo()
+  {
+    $validatedData = $this->validate(
+      [ 'email' => 'required|email' ],
+      [
+        'email.required' => 'The :attribute cannot be empty.',
+        'email.email' => 'The :attribute format is not valid.',
+      ],
+      [ 'email' => 'Email Address' ]
+    );
+
+    UserInfo::create($validatedData);
+  }
+
+  public function render()
+  {
+    return view('livewire.pengguna.create');
+  }
 }

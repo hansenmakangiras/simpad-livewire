@@ -16,9 +16,10 @@ class CreateUserInfosTable extends Migration
         Schema::create('user_infos', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->binary('avatar');
+            $table->string('gelar', 30);
+            $table->string('first_name', 30);
+            $table->string('last_name', 30);
             $table->string('nop_pbb', 30);
-            $table->string('nik', 15);
             $table->string('no_telepon', 20);
             $table->year('tahun_sppt')->default(now()->year);
             $table->integer('status_hubungan');

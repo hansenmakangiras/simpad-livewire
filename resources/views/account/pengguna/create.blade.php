@@ -16,7 +16,7 @@
   @section('title', 'Tambah Pengguna')
 
 <!-- account setting page -->
-<livewire:pengguna.create />
+    <livewire:pengguna.create />
   <!-- / account setting page -->
 
   @push('vendor-script')
