@@ -195,15 +195,37 @@
                 <!-- form -->
                 <form class="validate-form">
                   <div class="row">
-                    <div class="col-12">
+{{--                    <div class="col-12">--}}
+{{--                      <div class="mb-1">--}}
+{{--                        <label class="form-label" for="accountTextarea">Bio</label>--}}
+{{--                        <textarea--}}
+{{--                          class="form-control"--}}
+{{--                          id="accountTextarea"--}}
+{{--                          rows="4"--}}
+{{--                          placeholder="Your Bio data here..."--}}
+{{--                        ></textarea>--}}
+{{--                      </div>--}}
+{{--                    </div>--}}
+                    <div class="col-12 col-sm-6">
                       <div class="mb-1">
-                        <label class="form-label" for="accountTextarea">Bio</label>
-                        <textarea
-                          class="form-control"
-                          id="accountTextarea"
-                          rows="4"
-                          placeholder="Your Bio data here..."
-                        ></textarea>
+                        <label class="form-label" for="account-birth-date">Birth date</label>
+                        <input
+                          type="text"
+                          class="form-control flatpickr"
+                          placeholder="Birth date"
+                          id="account-birth-date"
+                          name="dob"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                      <div class="mb-1">
+                        <label class="form-label" for="accountSelect">Country</label>
+                        <select class="form-select" id="accountSelect">
+                          <option>USA</option>
+                          <option>India</option>
+                          <option>Canada</option>
+                        </select>
                       </div>
                     </div>
                     <div class="col-12 col-sm-6">

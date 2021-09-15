@@ -96,7 +96,14 @@ class User extends Authenticatable
     $query->where(function ($q) use ($term) {
       $q->where('nik', 'like', $term)
         ->orWhere('username', 'like', $term)
-        ->orWhere('email', 'like', $term);
+        ->orWhere('email', 'like', $term)
+        ->orWhereHas('info', function($query) use($term){
+          $query->where('nik','like',$term);
+        })
+        ->orWhereHas('info', function($query) use($term) {
+          $query->where('nop_pbb', 'like', $term);
+        })
+      ;
     });
   }
 }

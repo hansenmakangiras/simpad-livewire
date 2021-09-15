@@ -84,15 +84,15 @@
         <div class="col-md">
           <div class="mb-0 ">
             <div class="input-group" id="perPage">
-              <span class="input-group-text border-0" id="selectPage">Show </span>
-              <x-select class="form-select-sm" wire:model="perPage">
+              <span class="input-group-text border-0">Tampilkan </span>
+              <x-select class="form-select" wire:model="perPage">
                 <option value=10>10</option>
                 <option value=25>25</option>
                 <option value=50>50</option>
                 <option value=75>75</option>
                 <option value=100>100</option>
               </x-select>
-              <span class="input-group-text" id="selectPage">Entries </span>
+              <span class="input-group-text border-0">Baris </span>
             </div>
           </div>
         </div>
@@ -101,24 +101,14 @@
         <!-- Filter status start -->
         <div class="col-md align-items-end">
           <div class="mb-0">
-            <div class="input-group col-md-6">
-              <span class="input-group-text" id="search">Status</span>
-              <x-select class="form-select-sm" wire:model="selectedStatus">
+            <div class="input-group col-md-12">
+              {{--              <span class="input-group-text border-0" id="search">Filter</span>--}}
+              <x-select class="form-select" wire:model="selectedStatus">
                 <option value="">Filter By Status</option>
                 <option value="true">Active</option>
                 <option value="false">Inactive</option>
               </x-select>
-            </div>
-          </div>
-        </div>
-        <!-- Filter status end -->
-
-        <!-- Filter Role Start -->
-        <div class="col-md align-items-end">
-          <div class="mb-0">
-            <div class="input-group col-md-6">
-              <span class="input-group-text" id="search">Role</span>
-              <x-select class="form-select-sm" wire:model="selectedRole">
+              <x-select class="form-select" wire:model="selectedRole">
                 <option value="">Filter By Role</option>
                 @foreach($roles as $role)
                   <option wire:key="{{ $role->id }}" value={{ $role->name }}>{{ $role->name }}</option>
@@ -127,7 +117,23 @@
             </div>
           </div>
         </div>
-        <!-- Filter Role End -->
+        <!-- Filter status end -->
+
+        <!-- Filter Role Start -->
+      {{--        <div class="col-md align-items-end">--}}
+      {{--          <div class="mb-0">--}}
+      {{--            <div class="col-md-12">--}}
+      {{--              <span class="input-group-text border-0" id="search">Filter</span>--}}
+      {{--              <x-select class="form-select" wire:model="selectedRole">--}}
+      {{--                <option value="">Filter By Role</option>--}}
+      {{--                @foreach($roles as $role)--}}
+      {{--                  <option wire:key="{{ $role->id }}" value={{ $role->name }}>{{ $role->name }}</option>--}}
+      {{--                @endforeach--}}
+      {{--              </x-select>--}}
+      {{--            </div>--}}
+      {{--          </div>--}}
+      {{--        </div>--}}
+      <!-- Filter Role End -->
 
         <!-- Bulk Action Start -->
         <div class="col-md">
@@ -141,10 +147,12 @@
                   <x-dropdown-item>
                     <x-nav-link wire:click="$emit('triggerDelete','deleteBulk','bulk')" class="dropdown-item">
                       <i class="far fa-trash-alt"></i>
+                      {{--                      <i data-feather="trash" class="me-50"></i>--}}
                       <span class="align-middle">Delete</span>
                     </x-nav-link>
                     <x-nav-link wire:click="$emit('triggerEksport','eksport','bulk')" class="dropdown-item">
                       <i class="far fa-file-excel"></i>
+                      {{--                      <i data-feather="edit-2" class="me-50"></i>--}}
                       <span class="align-middle">Eksport</span>
                     </x-nav-link>
                   </x-dropdown-item>
@@ -157,9 +165,9 @@
 
         <div class="col-md align-items-end">
           <div class="mb-0">
-            <div class="input-group col-md-6">
-              <span class="input-group-text" id="search">Search</span>
-              <input type="search" class="form-control form-control-sm" id="search" placeholder="Cari username, email, role  atau nik">
+            <div class=" col-md-12">
+              {{--              <span class="input-group-text border-0" id="search">Search</span>--}}
+              <input type="search" wire:model.debounce.500ms="search" class="form-control" id="search" placeholder="Cari username, email, role  atau nik">
             </div>
           </div>
         </div>
@@ -169,9 +177,9 @@
     <!-- Table Start -->
       <x-table class="user-list-table table">
         <x-table.table-head>
-          <div wire:ignore>
           <th width="2%"><input type="checkbox" class="form-check" wire:model="selectAll" /></th>
-          </div>
+          <th width="10%">NOP PBB</th>
+          <th width="10%">NIK</th>
           <th width="10%">Username</th>
           <th width="10%">Email</th>
           <th width="5%">Akses</th>
@@ -186,6 +194,8 @@
               </th>
               <td>{{ $u->username }}</td>
               <td>{{ $u->email }}</td>
+              <td>{{ $u->info()->get()->first()->nop_pbb }}</td>
+              <td>{{ $u->info()->get()->first()->nik }}</td>
               <td>
                 @foreach($u->roles as $role)
                   <span class="badge rounded-pill badge-glow badge-light-{{ $u->is_admin ? 'warning' : 'success' }} rounded">
@@ -265,7 +275,7 @@
 @push('page-script')
   <!--suppress JSJQueryEfficiency -->
   <script>
-    if(feather){
+    if (feather) {
       feather.replace({});
     }
     document.addEventListener('DOMContentLoaded', function () {

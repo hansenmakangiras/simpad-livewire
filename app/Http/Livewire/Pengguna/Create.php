@@ -18,8 +18,8 @@ class Create extends Component
   public $roleArr;
 
   public $permissions;
-  public $selectedRoles = '';
-  public $selectedPermission = [];
+  public string $selectedRoles = '';
+  public array $selectedPermission = [];
   public bool $isChecked = false;
   // list of permission actions
   public array $permissionCrud = [ 'read', 'write', 'create', 'delete' ];
