@@ -31,13 +31,13 @@ class Create extends Component
   public $role;
   public $avatar;
 
-  public $isUploading = false;
+  public bool $updateMode = false;
+  public bool $isUploading = false;
 
   public function mount()
   {
     $this->roles = Role::where('name', '!=', 'superadmin')->get();
     $this->roleArr = Role::pluck('name', 'id');
-//    $this->permissions = Permission::with('roles')->get();
   }
 
   protected function rules()

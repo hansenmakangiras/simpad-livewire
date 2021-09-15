@@ -293,6 +293,7 @@
   </section>
 </div>
 @push('page-script')
+  <script src="{{ asset(mix('js/scripts/components/components-modals.js')) }}"></script>
   <script>
     // let file = document.querySelector('input[type="file"]').files[0];
     // console.log(file);

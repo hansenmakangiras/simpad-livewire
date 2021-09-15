@@ -28,8 +28,6 @@
 
   @livewireStyles
 </head>
-
-
 <body
   class="vertical-layout vertical-menu-modern {{ $configData['bodyClass'] }} {{($configData['theme'] === 'dark') ? 'dark-layout' : ''}} {{ $configData['blankPageClass'] }} blank-page"
   data-menu="vertical-menu-modern"

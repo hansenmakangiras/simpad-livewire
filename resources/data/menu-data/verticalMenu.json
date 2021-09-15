@@ -89,6 +89,26 @@
           "slug": "jenis-op-reklame"
         }
       ]
+    },
+    {
+      "name": "Laporan",
+      "icon": "pie-chart",
+      "slug": "laporan",
+      "badgeClass": "badge rounded-pill badge-light-danger ms-auto me-1",
+      "submenu": [
+        {
+          "url": "laporan-wajib-pajak",
+          "name": "Laporan WP",
+          "icon": "circle",
+          "slug": "laporan-wajib-pajak"
+        },
+        {
+          "url": "laporan-objek-pajak",
+          "name": "Laporan OP",
+          "icon": "circle",
+          "slug": "laporan-objek-pajak"
+        }
+      ]
     }
   ]
 }

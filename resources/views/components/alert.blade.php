@@ -1,10 +1,16 @@
-<div {{ $attributes->merge(['class' => 'alert' ,'role' => 'alert']) }}>
-  <div class="alert-body">
-    <strong>Info:</strong> Please check the &nbsp;<a
-      class="text-primary"
-      href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/documentation/documentation-layouts.html#layout-collapsed-menu"
-      target="_blank"
-    >Layout documentation</a
-    >&nbsp; for more layout options i.e collapsed menu, without menu, empty & blank.
+@props(['alertTipe' => ''])
+@php
+  $alert = ['success','info','danger','warning','primary'];
+  $tipe = '';
+@endphp
+
+@if(in_array($alertTipe,$alert))
+  <div {{ $attributes->merge(['class' => 'alert alert-dismissible alert-'.$alertTipe.' fade show' ,'role' => 'alert']) }}>
+    <div class="alert-body">
+      <strong>{{ $alertTitle }}</strong>
+      {{ $slot }}
+    </div>
+    <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
   </div>
-</div>
+@endif
+
