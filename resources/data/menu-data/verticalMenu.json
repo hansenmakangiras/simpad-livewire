@@ -8,7 +8,7 @@
     },
     {
       "name": "Account",
-      "icon": "users",
+      "icon": "user-check",
       "slug": "managemen-pengguna",
       "badgeClass": "badge rounded-pill badge-light-danger ms-auto me-1",
       "submenu": [
@@ -29,6 +29,64 @@
           "name": "Access Type",
           "icon": "circle",
           "slug": "tipe-akses"
+        }
+      ]
+    },
+    {
+      "name": "Wajib Pajak",
+      "icon": "user",
+      "slug": "wajib-pajak",
+      "badgeClass": "badge rounded-pill badge-light-danger ms-auto me-1",
+      "submenu": [
+        {
+          "url": "jenis-wajib-pajak",
+          "name": "Jenis WP",
+          "icon": "circle",
+          "slug": "jenis-wajib-pajak"
+        },
+        {
+          "url": "data-wajib-pajak",
+          "name": "Data WP",
+          "icon": "circle",
+          "slug": "data-wajib-pajak"
+        }
+      ]
+    },
+    {
+      "name": "Objek Pajak",
+      "icon": "layers",
+      "slug": "objek-pajak",
+      "badgeClass": "badge rounded-pill badge-light-danger ms-auto me-1",
+      "submenu": [
+        {
+          "url": "data-objek-pajak",
+          "name": "Data OP",
+          "icon": "circle",
+          "slug": "data-objek-pajak"
+        },
+        {
+          "url": "jenis-objek-pajak",
+          "name": "Jenis OP",
+          "icon": "circle",
+          "slug": "jenis-objek-pajak"
+        },
+        {
+          "url": "kategori-op-reklame",
+          "name": "Kategori OP Reklame",
+          "icon": "circle",
+          "slug": "kategori-op-reklame"
+        },
+        {
+          "url": "jenis-usaha-op-reklame",
+          "name": "Jenis Usaha OP",
+          "icon": "circle",
+          "slug": "jenis-usaha-op-reklame"
+        },
+        {
+          "url": "jenis-op-reklame",
+          "name": "Jenis OP Reklame",
+          "icon": "circle",
+          "slug": "jenis-op-reklame"
         }
       ]
     }

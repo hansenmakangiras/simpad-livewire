@@ -22,7 +22,7 @@ class Create extends Component
   public array $selectedPermission = [];
   public bool $isChecked = false;
   // list of permission actions
-  public array $permissionCrud = [ 'read', 'write', 'create', 'delete' ];
+  public array $permissionCrud = ['read', 'write', 'create', 'delete'];
   public string $permissionModel = 'user';
 
   public $email;
@@ -45,8 +45,8 @@ class Create extends Component
     return [
 //      'avatar' => 'image|max:1024',
       'username' => 'required',
-      'password' => [ 'required', 'min:8' ],
-      'email' => [ 'required', 'email', 'not_in:' . auth()->user()->email ],
+      'password' => ['required', 'min:8'],
+      'email' => ['required', 'email', 'not_in:'.auth()->user()->email],
       'role' => 'required',
       'permissions' => 'required',
     ];
@@ -79,13 +79,13 @@ class Create extends Component
     $this->validate();
 
     $user = User::create([
-                           'username' => $this->username,
-                           'password' => \Hash::make($this->password),
-                           'email' => $this->email,
-                           'nik' => '343534534534534',
-                           'is_admin' => false,
-                           'status' => true
-                         ]);
+      'username' => $this->username,
+      'password' => \Hash::make($this->password),
+      'email' => $this->email,
+      'nik' => '343534534534534',
+      'is_admin' => false,
+      'status' => true
+    ]);
     $user->role($this->selectedRoles)->syncPermissions($this->selectedPermission);
 
     return $user;
@@ -108,12 +108,12 @@ class Create extends Component
   public function storeUserInfo()
   {
     $validatedData = $this->validate(
-      [ 'email' => 'required|email' ],
+      ['email' => 'required|email'],
       [
         'email.required' => 'The :attribute cannot be empty.',
         'email.email' => 'The :attribute format is not valid.',
       ],
-      [ 'email' => 'Email Address' ]
+      ['email' => 'Email Address']
     );
 
     UserInfo::create($validatedData);

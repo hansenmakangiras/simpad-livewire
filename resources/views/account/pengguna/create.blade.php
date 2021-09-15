@@ -15,9 +15,9 @@
 
   @section('title', 'Tambah Pengguna')
 
-<!-- account setting page -->
+<!-- account create page -->
     <livewire:pengguna.create />
-  <!-- / account setting page -->
+  <!-- / account create page -->
 
   @push('vendor-script')
     <script src="{{ asset(mix('vendors/js/forms/validation/jquery.validate.min.js')) }}"></script>

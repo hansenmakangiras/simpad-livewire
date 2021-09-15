@@ -15,7 +15,7 @@
                 aria-expanded="true"
               >
                 <i data-feather="user" class="font-medium-3 me-1"></i>
-                <span class="fw-bold">General</span>
+                <span class="fw-bold">Pribadi</span>
               </a>
             </li>
             <!-- information -->
@@ -28,7 +28,7 @@
                 aria-expanded="false"
               >
                 <i data-feather="info" class="font-medium-3 me-1"></i>
-                <span class="fw-bold">Information</span>
+                <span class="fw-bold">Informasi</span>
               </a>
             </li>
           </ul>
