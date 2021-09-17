@@ -42,24 +42,7 @@
                     </div>
                   </div>
                   <div class="col-12">
-                    <button type="submit" class="btn btn-primary me-1 waves-effect waves-float waves-light">Submit</button>
-                    <button type="reset" class="btn btn-outline-secondary waves-effect">Reset</button>
-                  </div>
-                </div>
-              </form>
-            @else
-              <form method="post" action="" class="form form-vertical">
-                @csrf
-                <div class="row">
-                  <div class="col-12">
-                    <div class="mb-1">
-                      <label class="form-label" for="first-name-vertical">Jenis Pajak</label>
-                      <input type="text" id="nama-jenis-pajak" value="{{ $jenisWp->nama_jenis_wp }}" class="form-control" name="nama_jenis_pajak" placeholder="Jenis Pajak">
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <button type="reset" class="btn btn-primary me-1 waves-effect waves-float waves-light">Submit</button>
-                    <button type="reset" class="btn btn-outline-secondary waves-effect">Reset</button>
+                    <button type="submit" class="btn btn-primary me-1 waves-effect waves-float waves-light">Simpan</button>
                   </div>
                 </div>
               </form>
@@ -161,14 +144,13 @@
                       <div wire:ignore>
                         <button type="button" class="btn btn-sm dropdown-toggle hide-arrow waves-effect waves-float waves-light" data-bs-toggle="dropdown">
                           <i data-feather="more-vertical"></i>
-                          {{--                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>--}}
                         </button>
 
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">
+                          <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editjenispajak-modal">
                             <i data-feather="edit-2" class="me-50"></i>
                             <span>Ubah</span>
-                          </a>
+                          </button>
                           <a class="dropdown-item" wire:click="$emit('triggerDelete',{{ $wp->id }},'single')">
                             <i data-feather="trash" class="me-50"></i>
                             <span>Hapus</span>
@@ -201,19 +183,23 @@
 </div>
 
 <!-- Modal to add new jenis pajak starts-->
-<x-modal class="text-start" id="addjenispajak-modal">
+<x-modal class="text-start" id="editjenispajak-modal">
   <x-slot name="modalTitle">
-    <h4 class="modal-title" id="myModalLabel33">Tambah Jenis Pajak</h4>
+    <h4 class="modal-title" id="myModalLabel33">Edit Jenis Pajak</h4>
   </x-slot>
-  <form action="#">
-    <div class="modal-body">
-      <label>Jenis Pajak: </label>
-      <div class="mb-1">
-        <input type="text" placeholder="Jenis Pajak" name="nama_jenis_wp" class="form-control" />
+  <form wire:submit.prevent="updateJenisPajak" class="form form-vertical">
+    @csrf
+    <div class="row">
+      <div class="col-12">
+        <div class="mb-1">
+          <label class="form-label" for="first-name-vertical">Jenis Pajak</label>
+          <input wire:model="nama_jenis_wp" type="text" id="nama-jenis-pajak" value="" class="form-control" name="nama_jenis_wp" placeholder="Jenis Pajak">
+        </div>
       </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Simpan</button>
+      <x-slot name="modalFooter">
+        <button type="reset" class="btn btn-primary me-1 waves-effect waves-float waves-light">Simpan</button>
+
+      </x-slot>
     </div>
   </form>
 </x-modal>

@@ -26,6 +26,7 @@ class JenisWpTable extends Component
   public bool $selectAll = false;
   public bool $bulkDisabled = true;
   public bool $updateMode = false;
+  public bool $showFormUpdate = false;
 
   public $nama_jenis_wp;
 
@@ -55,11 +56,6 @@ class JenisWpTable extends Component
     session()->flash('message', 'Jenis Wajib Pajak berhasil ditambahkan.');
     return redirect()->route('jenis-wajib-pajak.index');
   }
-//
-//  public function created()
-//  {
-//    $this->reset('nama_jenis_wp');
-//  }
 
   public function updated($propertyName)
   {
@@ -69,6 +65,14 @@ class JenisWpTable extends Component
   public function editJenisPajak()
   {
     $this->updateMode = true;
+  }
+
+  public function updateJenisPajak($id)
+  {
+    $this->validate();
+    JenisWajibPajak::findOrFail($id)->update($this->validate());
+    session()->flash('message', 'Jenis Wajib Pajak berhasil diubah.');
+    return redirect()->route('jenis-wajib-pajak.index');
   }
 
   public function delete($id, $tipe): ?bool
@@ -90,7 +94,6 @@ class JenisWpTable extends Component
   {
     if ($value) {
       $this->checked = JenisWajibPajak::query()
-        ->where('id', '!=', 1)
         ->pluck('id')
         ->forPage($this->page, $this->perPage)
         ->toArray();
@@ -110,6 +113,6 @@ class JenisWpTable extends Component
       ->orderBy($this->defaultSort)
       ->paginate($this->perPage);
 
-    return view('livewire.wajib-pajak.jenis-wp-table',compact('jenisWp'));
+    return view('livewire.wajib-pajak.jenis-wp-table', compact('jenisWp'));
   }
 }
