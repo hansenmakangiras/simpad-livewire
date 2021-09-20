@@ -1,6 +1,6 @@
 # SISTEM INFORMASI PAJAK ONLINE - ESPPT PBB ONLINE
 
-[![Build Status](https://app.travis-ci.com/hansenmakangiras/simpad-livewire.svg?branch=master)](https://travis-ci.com/hansenmakangiras/simpad-livewire)
+[![Build Status](https://app.travis-ci.com/hanzo-asashi/simpad-livewire.svg?branch=master)](https://travis-ci.com/hanzo-asashi/simpad-livewire)
 [![StyleCI](https://github.styleci.io/repos/401698680/shield?branch=master)](https://github.styleci.io/repos/401698680?branch=master)
 
 
