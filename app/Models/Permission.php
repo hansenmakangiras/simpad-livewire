@@ -11,7 +11,7 @@ class Permission extends \Spatie\Permission\Models\Permission
   {
     $data = [];
     // list of model permission
-    $model = ['content', 'user', 'role', 'permission'];
+    $model = ['user', 'role', 'permission'];
 
     foreach ($model as $value) {
       foreach ((new Permission())->crudActions($value) as $action) {
@@ -26,7 +26,7 @@ class Permission extends \Spatie\Permission\Models\Permission
   {
     $actions = [];
     // list of permission actions
-    $crud = ['create', 'read', 'update', 'delete'];
+    $crud = ['create', 'read', 'update', 'delete','manage'];
 
     foreach ($crud as $value) {
       $actions[] = $value.' '.$name;

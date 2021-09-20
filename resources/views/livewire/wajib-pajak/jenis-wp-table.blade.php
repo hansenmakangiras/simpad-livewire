@@ -80,7 +80,6 @@
                     <option value=75>75</option>
                     <option value=100>100</option>
                   </x-select>
-                  <span class="input-group-text border-0">Baris </span>
                 </div>
               </div>
             </div>

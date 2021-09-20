@@ -40,6 +40,9 @@ class UserTable extends Component
     $this->resetPage();
   }
 
+  /**
+   * @throws \Illuminate\Auth\Access\AuthorizationException
+   */
   public function delete($id, $tipe): ?bool
   {
     $this->authorize('delete', $this->checked);

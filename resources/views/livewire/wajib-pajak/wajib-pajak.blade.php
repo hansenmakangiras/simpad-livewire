@@ -1,7 +1,7 @@
 <div>
-  <!-- users list start -->
+  <!-- wajib pajak list start -->
   <section class="app-user-list">
-    <!-- users filter start -->
+    <!-- wajib pajak filter start -->
     @if($filter)
       <x-card class="mb-1">
         <x-card-content class="justify-content-start align-items-start mx-25 row pt-1 pb-1">
@@ -244,34 +244,33 @@
     <!-- Card Datatable End -->
 
       <!-- Modal to add new user starts-->
-{{--      <x-modal class="text-start" id="adduser-modal">--}}
-{{--        <x-slot name="modalTitle">--}}
-{{--          <h4 class="modal-title" id="myModalLabel33">Tambah Pengguna</h4>--}}
-{{--        </x-slot>--}}
-{{--        <form action="#">--}}
-{{--          <div class="modal-body">--}}
-{{--            <label>Email: </label>--}}
-{{--            <div class="mb-1">--}}
-{{--              <input type="text" placeholder="Email Address" class="form-control" />--}}
-{{--            </div>--}}
+      <x-modal class="text-start" id="adduser-modal">
+        <x-slot name="modalTitle">
+          <h4 class="modal-title" id="myModalLabel33">Tambah Pengguna</h4>
+        </x-slot>
+        <form action="#">
+          <div class="modal-body">
+            <label>Email: </label>
+            <div class="mb-1">
+              <input type="text" placeholder="Email Address" class="form-control" />
+            </div>
 
-{{--            <label>Password: </label>--}}
-{{--            <div class="mb-1">--}}
-{{--              <input type="password" placeholder="Password" class="form-control" />--}}
-{{--            </div>--}}
-{{--          </div>--}}
-{{--          <div class="modal-footer">--}}
-{{--            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Login</button>--}}
-{{--          </div>--}}
-{{--        </form>--}}
-{{--      </x-modal>--}}
+            <label>Password: </label>
+            <div class="mb-1">
+              <input type="password" placeholder="Password" class="form-control" />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Login</button>
+          </div>
+        </form>
+      </x-modal>
       <!-- Modal to add new user Ends-->
     </x-card>
     <!-- list section end -->
   </section>
-  <!-- users list ends -->
+  <!-- wajib pajak list ends -->
 </div>
-
 @push('page-script')
   <!--suppress JSJQueryEfficiency -->
   <script>
@@ -324,5 +323,3 @@
     });
   </script>
 @endpush
-
-

@@ -45,10 +45,10 @@
           "slug": "jenis-wajib-pajak"
         },
         {
-          "url": "data-wajib-pajak",
+          "url": "wajib-pajak",
           "name": "Data WP",
           "icon": "circle",
-          "slug": "data-wajib-pajak"
+          "slug": "wajib-pajak"
         }
       ]
     },
@@ -59,10 +59,10 @@
       "badgeClass": "badge rounded-pill badge-light-danger ms-auto me-1",
       "submenu": [
         {
-          "url": "data-objek-pajak",
+          "url": "objek-pajak",
           "name": "Data OP",
           "icon": "circle",
-          "slug": "data-objek-pajak"
+          "slug": "objek-pajak"
         },
         {
           "url": "jenis-objek-pajak",

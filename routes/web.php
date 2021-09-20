@@ -1,7 +1,14 @@
 <?php
 
+use App\Http\Controllers\Account\HakAksesController;
 use App\Http\Controllers\Account\PenggunaController;
+use App\Http\Controllers\Account\TipeAksesController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\ObjekPajak\JenisOpController;
+use App\Http\Controllers\ObjekPajak\JenisOpReklameController;
+use App\Http\Controllers\ObjekPajak\JenisUsahaOpReklameController;
+use App\Http\Controllers\ObjekPajak\KategoriOpReklameController;
+use App\Http\Controllers\ObjekPajak\ObjekPajakController;
 use App\Http\Controllers\StaterkitController;
 use App\Http\Controllers\WajibPajak\JenisWpController;
 use App\Http\Controllers\WajibPajak\WajibPajakController;
@@ -32,6 +39,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('pengguna/eksport', [PenggunaController::class, 'create'])->name('pengguna.eksport');
 //    Route::resource('pengguna', \App\Http\Controllers\Account\PenggunaController::class);
   });
+  Route::resource('hak-akses', HakAksesController::class);
+  Route::resource('tipe-akses', TipeAksesController::class);
+
   Route::get('layouts/collapsed-menu', [StaterkitController::class, 'collapsed_menu'])->name('collapsed-menu');
   Route::get('layouts/full', [StaterkitController::class, 'layout_full'])->name('layout-full');
   Route::get('layouts/without-menu', [StaterkitController::class, 'without_menu'])->name('without-menu');
@@ -42,13 +52,13 @@ Route::middleware(['auth'])->group(function () {
   Route::get('lang/{locale}', [LanguageController::class, 'swap']);
 
   // Route Wajib Pajak
-  Route::resource('data-wajib-pajak', WajibPajakController::class);
+  Route::resource('wajib-pajak', WajibPajakController::class);
   Route::resource('jenis-wajib-pajak', JenisWpController::class);
 
   // Route Objek Pajak
-  Route::resource('data-objek-pajak', \App\Http\Controllers\ObjekPajak\ObjekPajakController::class);
-  Route::resource('jenis-objek-pajak', \App\Http\Controllers\ObjekPajak\JenisOpController::class);
-  Route::resource('kategori-op-reklame', \App\Http\Controllers\ObjekPajak\KategoriOpReklameController::class);
-  Route::resource('jenis-usaha-op-reklame', \App\Http\Controllers\ObjekPajak\JenisUsahaOpReklameController::class);
-  Route::resource('jenis-op-reklame', \App\Http\Controllers\ObjekPajak\JenisOpReklameController::class);
+  Route::resource('objek-pajak', ObjekPajakController::class);
+  Route::resource('jenis-objek-pajak', JenisOpController::class);
+  Route::resource('kategori-op-reklame', KategoriOpReklameController::class);
+  Route::resource('jenis-usaha-op-reklame', JenisUsahaOpReklameController::class);
+  Route::resource('jenis-op-reklame', JenisOpReklameController::class);
 });
