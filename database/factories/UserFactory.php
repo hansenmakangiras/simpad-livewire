@@ -23,16 +23,16 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'nik'             => Str::random(16),
+            'nik'                => Str::random(16),
             'avatar'             => $this->faker->image,
-            'username'          => $this->faker->userName,
-            'email'             => $this->faker->unique()->safeEmail,
-            'status'            => $this->faker->boolean,
-            'is_admin'          => $this->faker->boolean,
-            'last_login'        => now(),
-            'email_verified_at' => now(),
-            'password'          => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token'    => Str::random(10),
+            'username'           => $this->faker->userName,
+            'email'              => $this->faker->unique()->safeEmail,
+            'status'             => $this->faker->boolean,
+            'is_admin'           => $this->faker->boolean,
+            'last_login'         => now(),
+            'email_verified_at'  => now(),
+            'password'           => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token'     => Str::random(10),
         ];
     }
 

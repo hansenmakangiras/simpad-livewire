@@ -14,9 +14,9 @@ class JenisWajibPajak extends Model
     protected $fillable = ['nama_jenis_wp'];
     public $timestamps = false;
 
-  public function scopeSearch($query, $term)
-  {
-    $term = "%{$term}%";
-    $query->where('nama_jenis_wp', 'like', $term);
-  }
+    public function scopeSearch($query, $term)
+    {
+        $term = "%{$term}%";
+        $query->where('nama_jenis_wp', 'like', $term);
+    }
 }

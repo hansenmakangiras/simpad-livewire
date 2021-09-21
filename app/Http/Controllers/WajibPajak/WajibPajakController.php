@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 
 class WajibPajakController extends Controller
 {
-  public function index()
-  {
-    return view('wajib-pajak.index');
-  }
+    public function index()
+    {
+        return view('wajib-pajak.index');
+    }
 }
