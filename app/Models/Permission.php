@@ -7,31 +7,31 @@ namespace App\Models;
  */
 class Permission extends \Spatie\Permission\Models\Permission
 {
-  public static function defaultPermissions(): array
-  {
-    $data = [];
-    // list of model permission
-    $model = ['user', 'role', 'permission'];
+    public static function defaultPermissions(): array
+    {
+        $data = [];
+        // list of model permission
+        $model = ['user', 'role', 'permission'];
 
-    foreach ($model as $value) {
-      foreach ((new Permission())->crudActions($value) as $action) {
-        $data[] = ['name' => $action];
-      }
+        foreach ($model as $value) {
+            foreach ((new Permission())->crudActions($value) as $action) {
+                $data[] = ['name' => $action];
+            }
+        }
+
+        return $data;
     }
 
-    return $data;
-  }
+    public function crudActions($name): array
+    {
+        $actions = [];
+        // list of permission actions
+        $crud = ['create', 'read', 'update', 'delete', 'manage'];
 
-  public function crudActions($name): array
-  {
-    $actions = [];
-    // list of permission actions
-    $crud = ['create', 'read', 'update', 'delete','manage'];
+        foreach ($crud as $value) {
+            $actions[] = $value.' '.$name;
+        }
 
-    foreach ($crud as $value) {
-      $actions[] = $value.' '.$name;
+        return $actions;
     }
-
-    return $actions;
-  }
 }

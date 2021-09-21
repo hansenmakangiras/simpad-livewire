@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 
 class JenisWpController extends Controller
 {
-  public function index()
-  {
-    return view('wajib-pajak.jenis-pajak.index');
-  }
+    public function index()
+    {
+        return view('wajib-pajak.jenis-pajak.index');
+    }
 }

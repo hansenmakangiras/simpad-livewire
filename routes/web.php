@@ -28,37 +28,37 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [StaterkitController::class, 'home'])->name('home');
 Auth::routes();
 Route::middleware(['auth'])->group(function () {
-  Route::get('home', [StaterkitController::class, 'home'])->name('home');
-  //  Route::get('home', \App\Http\Livewire\Dashboard::class)->name('home');
+    Route::get('home', [StaterkitController::class, 'home'])->name('home');
+    //  Route::get('home', \App\Http\Livewire\Dashboard::class)->name('home');
 
-  // Route Components
-  Route::prefix('akun')->group(function () {
+    // Route Components
+    Route::prefix('akun')->group(function () {
 //    Route::get('pengguna', \App\Http\Livewire\UserTable::class)->name('pengguna');
-    Route::get('pengguna', [PenggunaController::class, 'index'])->name('pengguna');
-    Route::get('pengguna/tambah', [PenggunaController::class, 'create'])->name('pengguna.create');
-    Route::get('pengguna/eksport', [PenggunaController::class, 'create'])->name('pengguna.eksport');
+        Route::get('pengguna', [PenggunaController::class, 'index'])->name('pengguna');
+        Route::get('pengguna/tambah', [PenggunaController::class, 'create'])->name('pengguna.create');
+        Route::get('pengguna/eksport', [PenggunaController::class, 'create'])->name('pengguna.eksport');
 //    Route::resource('pengguna', \App\Http\Controllers\Account\PenggunaController::class);
-  });
-  Route::resource('hak-akses', HakAksesController::class);
-  Route::resource('tipe-akses', TipeAksesController::class);
+    });
+    Route::resource('hak-akses', HakAksesController::class);
+    Route::resource('tipe-akses', TipeAksesController::class);
 
-  Route::get('layouts/collapsed-menu', [StaterkitController::class, 'collapsed_menu'])->name('collapsed-menu');
-  Route::get('layouts/full', [StaterkitController::class, 'layout_full'])->name('layout-full');
-  Route::get('layouts/without-menu', [StaterkitController::class, 'without_menu'])->name('without-menu');
-  Route::get('layouts/empty', [StaterkitController::class, 'layout_empty'])->name('layout-empty');
-  Route::get('layouts/blank', [StaterkitController::class, 'layout_blank'])->name('layout-blank');
+    Route::get('layouts/collapsed-menu', [StaterkitController::class, 'collapsed_menu'])->name('collapsed-menu');
+    Route::get('layouts/full', [StaterkitController::class, 'layout_full'])->name('layout-full');
+    Route::get('layouts/without-menu', [StaterkitController::class, 'without_menu'])->name('without-menu');
+    Route::get('layouts/empty', [StaterkitController::class, 'layout_empty'])->name('layout-empty');
+    Route::get('layouts/blank', [StaterkitController::class, 'layout_blank'])->name('layout-blank');
 
-  // locale Route
-  Route::get('lang/{locale}', [LanguageController::class, 'swap']);
+    // locale Route
+    Route::get('lang/{locale}', [LanguageController::class, 'swap']);
 
-  // Route Wajib Pajak
-  Route::resource('wajib-pajak', WajibPajakController::class);
-  Route::resource('jenis-wajib-pajak', JenisWpController::class);
+    // Route Wajib Pajak
+    Route::resource('wajib-pajak', WajibPajakController::class);
+    Route::resource('jenis-wajib-pajak', JenisWpController::class);
 
-  // Route Objek Pajak
-  Route::resource('objek-pajak', ObjekPajakController::class);
-  Route::resource('jenis-objek-pajak', JenisOpController::class);
-  Route::resource('kategori-op-reklame', KategoriOpReklameController::class);
-  Route::resource('jenis-usaha-op-reklame', JenisUsahaOpReklameController::class);
-  Route::resource('jenis-op-reklame', JenisOpReklameController::class);
+    // Route Objek Pajak
+    Route::resource('objek-pajak', ObjekPajakController::class);
+    Route::resource('jenis-objek-pajak', JenisOpController::class);
+    Route::resource('kategori-op-reklame', KategoriOpReklameController::class);
+    Route::resource('jenis-usaha-op-reklame', JenisUsahaOpReklameController::class);
+    Route::resource('jenis-op-reklame', JenisOpReklameController::class);
 });

@@ -6,26 +6,26 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateJenisOpReklameTable extends Migration
 {
-  /**
-   * Run the migrations.
-   *
-   * @return void
-   */
-  public function up()
-  {
-    Schema::create('jenis_op_reklame', function (Blueprint $table) {
-      $table->id();
-      $table->string('nama_jenis_op');
-    });
-  }
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('jenis_op_reklame', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_jenis_op');
+        });
+    }
 
-  /**
-   * Reverse the migrations.
-   *
-   * @return void
-   */
-  public function down()
-  {
-    Schema::dropIfExists('jenis_op_reklame');
-  }
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('jenis_op_reklame');
+    }
 }
